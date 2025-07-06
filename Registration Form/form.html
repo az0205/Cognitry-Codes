@@ -13,7 +13,7 @@
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name"><br><br>
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"><br><br>
+    <input type="text" id="email" name="email"><br><br>
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password"><br><br>
     <label for="age">Age:</label><br>
@@ -28,12 +28,17 @@
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         let age = document.getElementById("age").value;
+        const emailPattern = /[^\s@]+@[^\s@]+\.[^\s@]+/;
         if (name == "") {
         alert("Name must be filled out");
         return false;
         }
         else if (email == "") {
         alert("Email must be filled out");
+        return false;
+        }
+        else if (!(emailPattern.test(email))) {
+        alert("Invalid email Format");
         return false;
         }
         else if (password == "") {
